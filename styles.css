@@ -20,7 +20,7 @@ header {
   padding: 10px 0;
   text-align: center;
 }
-
+/* Existing nav styles */
 nav {
   display: flex;
   justify-content: center;
@@ -36,11 +36,61 @@ nav a {
   text-decoration: none;
   text-transform: uppercase;
   transition: background-color 0.3s ease;
+  position: relative;
+  display: block;
+  overflow: hidden;
+  margin: 0 5px;
+  background: transparent;
+  font-weight: 900;
 }
 
 nav a:hover {
-  background-color: #1cb85e;
+  background-color: transparent; /* We want to use the border effect */
 }
+
+nav a:before, nav a:after {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 4px;
+  box-sizing: border-box;
+  transition: .3s transform linear, .3s height linear;
+}
+
+nav a:before {
+  left: 0;
+  bottom: 0;
+  border-bottom: 4px solid transparent;
+  border-left: 4px solid transparent;
+  transform: translateX(100%);
+}
+
+nav a:after {
+  top: 0;
+  left: 0;
+  border-top: 4px solid transparent;
+  border-right: 4px solid transparent;
+  transform: translateX(-100%);
+}
+
+nav a:hover:before {
+  border-color: #44adf2; /* Change this color to whatever you like */
+  height: 100%;
+  transform: translateX(0);
+  transition: .3s transform linear, .3s height linear .3s;
+}
+
+nav a:hover:after {
+  border-color: #c44e7c; /* Change this color to whatever you like */
+  height: 100%;
+  transform: translateX(0);
+  transition: .3s transform linear, .3s height linear .5s;
+}
+
+nav a:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
 .background {
   width: 100%;
   height: 100%;
@@ -533,62 +583,3 @@ html {
   transform: rotate(330deg);
 }
 
-.lang-card {
-  position: relative;
-  width: 150px;
-  height: 120px;
-  background: linear-gradient(-45deg, #27384b 0%, #618cbd 50%, #3a5471 100%);
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-
-.lang-card:hover {
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-.lang-card__content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  height: 100%;
-  padding: 20px;
-  box-sizing: border-box;
-  background: linear-gradient(-45deg, #27384b 0%, #618cbd 50%, #3a5471 100%);
-  opacity: 0;
-  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.lang-card:hover .lang-card__content {
-  transform: translate(-50%, -50%) rotate(0deg);
-  opacity: 1;
-}
-
-.lang-card__title {
-  margin: 0;
-  font-size: 24px;
-  color: #fff;
-  font-weight: 700;
-}
-
-.lang-card__description {
-  margin: 10px 0 0;
-  font-size: 14px;
-  color: #fff;
-  line-height: 1.4;
-}
-
-.lang-card:hover svg {
-  scale: 0;
-}
-#languages {
-  display: flex; /* Aligns cards side by side */
-  justify-content: space-around; /* Adjust spacing between cards */
-  flex-wrap: wrap; /* Allows cards to wrap onto new lines if necessary */
-}
