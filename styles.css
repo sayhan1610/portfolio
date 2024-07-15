@@ -62,6 +62,13 @@ nav a:hover {
       var(--c3) 0 180deg
     );
   background-size: var(--s) calc(var(--s) * 0.577);
+  animation: move 2s linear infinite;
+}
+
+@keyframes move {
+  to {
+    background-position: calc(var(--s) * 0.5) 0;
+  }
 }
 
 .container {
@@ -122,6 +129,18 @@ h3 {
 
 .social-icons a:hover {
   transform: translateY(-3px);
+}
+
+.social-icons img {
+  max-width: 30px; /* Adjust the size as needed */
+  max-height: 30px; /* Adjust the size as needed */
+  width: 100%; /* Ensure the images scale proportionally */
+  height: auto; /* Ensure the images scale proportionally */
+  transition: transform 0.5s ease, scale 0.5s ease;
+}
+
+.social-icons img:hover {
+  transform: scale(1.2) rotate(360deg);
 }
 
 /* Card-like sections */
