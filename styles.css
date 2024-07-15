@@ -14,7 +14,7 @@ body {
 }
 
 header {
-  background-color: #0aadc6;
+  background-color: #000;
   color: #ffffff;
   padding: 10px 0;
   text-align: center;
@@ -101,11 +101,82 @@ h3 {
   transform: translateY(-3px);
 }
 
-/* Rounded image */
-img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 50%;
+/* Card-like sections */
+.card {
+  background-color: #1c1c1c;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* About Me Card Specific Styles */
+.about-section .card {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  background: linear-gradient(-45deg, #1cb85e 0%, #0aadc6 50%, #1cb85e 100%);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.about-section .card img {
+  width: auto;
+  height: 100%;
+  border-radius: 20%;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.about-section .card:hover {
+  transform: rotate(-5deg) scale(1.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.about-section .card__content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  opacity: 0;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.about-section .card:hover .card__content {
+  transform: translate(-50%, -50%) rotate(0deg);
+  opacity: 1;
+}
+
+.about-section .card__title {
+  margin: 0;
+  font-size: 30px;
+  color: #333333;
+  font-weight: 700;
+}
+
+.about-section .card__description {
+  margin: 10px 0 0;
+  font-size: 25px;
+  color: #777777;
+  line-height: 1.4;
+}
+
+.about-section .card:hover img {
+  scale: 0;
+  transform: rotate(-45deg);
 }
 
 /* Smooth scrolling */
