@@ -88,6 +88,22 @@ nav a:hover:after {
   transition: 0.3s transform linear, 0.3s height linear 0.5s;
 }
 
+.lang-card img {
+  width: 30%;
+  height: 30%;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+.lang-card__title {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+.lang-card__description {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
 nav a:hover {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
@@ -863,7 +879,6 @@ button {
 
 .section-title {
   margin: 0;
-  font-size: 18px;
   font-weight: 600;
   color: #fff;
   cursor: default;
@@ -905,72 +920,6 @@ button {
 .section:hover > .section-text {
   opacity: 1;
 }
-
-.project-card {
-  position: relative;
-  box-sizing: border-box;
-  border: 5px solid #27384b;
-  border-radius: 8px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 10px;
-  padding: 10px;
-  transition: all ease-in-out 0.3s;
-  overflow: hidden;
-  box-shadow: rgba(39, 56, 75, 0.19) 0px 10px 20px,
-    rgba(39, 56, 75, 0.23) 0px 6px 6px, inset rgba(0, 0, 0, 0.19) 0px 10px 20px,
-    inset rgba(0, 0, 0, 0.23) 0px 6px 6px;
-  transition: all ease-in-out 0.3s;
-}
-
-.project-card:hover {
-  box-shadow: #215a80 0px 10px 20px, rgba(193, 44, 223, 0.23) 0px 6px 6px,
-    inset #215a80 0px 10px 20px, inset #215a80 0px 6px 6px;
-  border: 5px solid #4e7197;
-}
-
-.project-card-title {
-  margin: 0;
-  font-size: 18px;
-  font-weight: 600;
-  color: #fff;
-  cursor: default;
-}
-
-.project-card-des {
-  margin: 0;
-  font-size: 15px;
-
-  font-weight: 600;
-  color: #fff;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  display: -webkit-box;
-  word-break: break-all;
-  -webkit-line-clamp: 3;
-  line-clamp: 3;
-  cursor: default;
-}
-
-.project-card-text {
-  position: absolute;
-  margin: 0;
-  font-size: 14px;
-
-  font-weight: 400;
-  color: #fff;
-  right: 20px;
-  bottom: 5px;
-  display: flex;
-  align-items: center;
-  gap: 3px;
-  opacity: 0;
-  transition: all ease-in-out 0.3s;
-  animation: textanimate 0.8s alternate infinite;
-  cursor: pointer;
-}
-
-.project-card:hover > .project-card-text {
-  opacity: 1;
+.card a {
+  color: #44adf2;
 }
