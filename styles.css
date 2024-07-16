@@ -48,13 +48,14 @@ nav a:hover {
   background-color: transparent; /* We want to use the border effect */
 }
 
-nav a:before, nav a:after {
+nav a:before,
+nav a:after {
   position: absolute;
-  content: '';
+  content: "";
   width: 100%;
   height: 4px;
   box-sizing: border-box;
-  transition: .3s transform linear, .3s height linear;
+  transition: 0.3s transform linear, 0.3s height linear;
 }
 
 nav a:before {
@@ -77,14 +78,14 @@ nav a:hover:before {
   border-color: #44adf2; /* Change this color to whatever you like */
   height: 100%;
   transform: translateX(0);
-  transition: .3s transform linear, .3s height linear .3s;
+  transition: 0.3s transform linear, 0.3s height linear 0.3s;
 }
 
 nav a:hover:after {
   border-color: #c44e7c; /* Change this color to whatever you like */
   height: 100%;
   transform: translateX(0);
-  transition: .3s transform linear, .3s height linear .5s;
+  transition: 0.3s transform linear, 0.3s height linear 0.5s;
 }
 
 nav a:hover {
@@ -112,7 +113,6 @@ nav a:hover {
       var(--c3) 0 180deg
     );
   background-size: var(--s) calc(var(--s) * 0.577);
-
 }
 
 @keyframes move {
@@ -397,10 +397,7 @@ html {
   }
 
   30% {
-    content: "#{+.";
-  }
-    
-  35% {content: "@}-?";
+    content: "#{+.";}35%{content: "@}-?";
   }
 
   40% {
@@ -517,7 +514,8 @@ html {
 }
 
 @keyframes animate_4010 {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(-20px);
   }
 
@@ -528,7 +526,7 @@ html {
 
 .bubble::before,
 .bubble::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 50px;
   left: 45px;
@@ -583,3 +581,131 @@ html {
   transform: rotate(330deg);
 }
 
+/* Centering card contents */
+.section-title {
+  text-align: center;
+}
+.card,
+.project-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.card h3,
+.project-card h3 {
+  margin-bottom: 10px;
+}
+
+.card img,
+.project-card img {
+  margin-bottom: 10px;
+  max-width: 100%;
+}
+
+.card__title,
+.project-card h3,
+.card__description,
+.project-card p {
+  text-align: center;
+}
+
+.button-parrot {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  z-index: 1000;
+}
+
+button {
+  background: transparent;
+  color: #fff;
+  border: 3px solid #fff;
+  border-radius: 50px;
+  padding: 0.8rem 2rem;
+  font: 18px "Margarine", sans-serif;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  transition: 0.2s ease-in-out;
+  letter-spacing: 2px;
+}
+
+.button-parrot .parrot {
+  position: absolute;
+  width: 60px;
+  text-align: center;
+  animation: blink 0.8s infinite;
+  color: transparent;
+}
+
+.button-parrot .parrot:before {
+  content: "Click Me!";
+}
+
+.button-parrot .parrot:nth-child(1) {
+  top: -30px;
+  left: -40px;
+  font: 12px/1 "Margarine", sans-serif;
+  transform: rotate(-20deg);
+  animation-duration: 0.5s;
+}
+
+.button-parrot .parrot:nth-child(2) {
+  font: 12px/1 "Margarine", sans-serif;
+  right: -40px;
+  top: -20px;
+  transform: rotate(15deg);
+  animation-duration: 0.3s;
+}
+
+.button-parrot .parrot:nth-child(3) {
+  font: 16px/1 "Margarine", sans-serif;
+  top: -60px;
+  left: 15px;
+  transform: rotate(10deg);
+  animation-duration: 1s;
+}
+
+.button-parrot .parrot:nth-child(4) {
+  font: 18px/1 "Margarine", sans-serif;
+  top: -70px;
+  left: 95px;
+  transform: rotate(2deg);
+  animation-duration: 0.7s;
+}
+
+.button-parrot .parrot:nth-child(5) {
+  font: 14px/1 "Margarine", sans-serif;
+  top: 80px;
+  left: 105px;
+  transform: rotate(-20deg);
+  animation-duration: 0.8s;
+}
+
+.button-parrot .parrot:nth-child(6) {
+  font: 12px/1 "Margarine", sans-serif;
+  top: 80px;
+  left: 5px;
+  transform: rotate(10deg);
+  animation-duration: 1.2s;
+}
+
+.button-parrot button:hover .parrot:before {
+  content: "Do it!";
+  width: 70px;
+}
+
+@keyframes blink {
+  25%,
+  75% {
+    color: transparent;
+  }
+
+  40%,
+  60% {
+    color: #fff;
+  }
+}
