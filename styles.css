@@ -985,6 +985,10 @@ button {
   transform: translateX(0);
   transition: 0.3s transform linear, 0.3s height linear 0.5s;
 }
+.card___description,
+.card___title {
+  display: none;
+}
 
 /*Media Queries*/
 @media (max-width: 768px) {
@@ -1011,5 +1015,48 @@ button {
   }
   .contact-info {
     margin-bottom: 150px;
+  }
+
+  /*about section*/
+  .about-section .card {
+    position: relative;
+    width: 100%;
+    height: auto;
+    background: linear-gradient(-45deg, #212121 0%, #414141 50%, #212121 100%);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .about-section .card img {
+    margin-top: 20px;
+    width: auto;
+    height: 200px;
+    border-radius: 20%;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .about-section .card:hover {
+    display: none;
+  }
+  .about-section .lang-card__title {
+    font-size: 2px;
+  }
+  .card___title {
+    margin: 0;
+    display: block;
+    font-size: 32px;
+    color: #777;
+    font-weight: 700;
+  }
+  .card___description {
+    display: block;
+    margin: 10px 0 0;
+    font-size: auto;
+    color: #777777;
+    line-height: 1.4;
   }
 }
