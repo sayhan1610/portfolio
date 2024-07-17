@@ -1060,14 +1060,26 @@ button {
     line-height: 1.4;
   }
 }
+#gallery {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center items horizontally */
+  justify-content: center; /* Center items vertically */
+  padding: 20px; /* Adjust padding as needed */
+}
+
 .gallery-container {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+  justify-content: center; /* Center items horizontally within the container */
 }
 
 .gallery-image {
-  width: calc(33.333% - 10px);
+  width: calc(33.333% - 10px); /* Adjust as needed */
+  height: 400px; /* Set a fixed height for consistency */
+  object-fit: cover; /* Crop the image to cover the entire container */
+  min-width: 250px; /* Adjust as needed */
   border-radius: 10px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }

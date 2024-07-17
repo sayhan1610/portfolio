@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
     .catch(err => console.error('Error fetching gallery images:', err));
 });
 
+
 // Add the onclick attribute to a button element
 const button = document.createElement('button');
 button.onclick = function() {
