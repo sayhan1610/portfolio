@@ -1,3 +1,4 @@
+/*
 document.addEventListener('DOMContentLoaded', function() {
   const galleryContainer = document.querySelector('.gallery-container');
 
@@ -27,3 +28,4 @@ button.onclick = function() {
   window.location.href = 'https://www.youtube.com/watch?v=xvFZjo5PgG0';
 };
 galleryContainer.appendChild(button);
+*/
