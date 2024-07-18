@@ -989,7 +989,34 @@ button {
 .card___title {
   display: none;
 }
+#gallery {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center items horizontally */
+  justify-content: center; /* Center items vertically */
+  padding: 20px; /* Adjust padding as needed */
+}
 
+.gallery-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center; /* Center items horizontally within the container */
+}
+
+.gallery-image {
+  width: calc(33.333% - 10px); /* Adjust as needed */
+  height: 400px; /* Set a fixed height for consistency */
+  object-fit: cover; /* Crop the image to cover the entire container */
+  min-width: 250px; /* Adjust as needed */
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-image:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
 /*Media Queries*/
 @media (max-width: 768px) {
   .button {
@@ -1059,32 +1086,12 @@ button {
     color: #777777;
     line-height: 1.4;
   }
-}
-#gallery {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Center items horizontally */
-  justify-content: center; /* Center items vertically */
-  padding: 20px; /* Adjust padding as needed */
-}
-
-.gallery-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  justify-content: center; /* Center items horizontally within the container */
-}
-
-.gallery-image {
-  width: calc(33.333% - 10px); /* Adjust as needed */
-  height: 400px; /* Set a fixed height for consistency */
-  object-fit: cover; /* Crop the image to cover the entire container */
-  min-width: 250px; /* Adjust as needed */
-  border-radius: 10px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.gallery-image:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  .gallery-image {
+    width: calc(33.333% - 10px); /* Adjust as needed */
+    height: 230px; /* Set a fixed height for consistency */
+    object-fit: cover; /* Crop the image to cover the entire container */
+    min-width: 150px; /* Adjust as needed */
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
 }
