@@ -5,17 +5,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const inputField = document.getElementById('input');
 
     const routes = {
-        home: 'home',
-        about: 'about',
-        experience: 'experience',
-        education: 'education',
-        skills: 'skills',
-        languages: 'languages',
-        projects: 'projects',
-        gallery: 'gallery',
-        contact: 'contact',
-        help: 'help',
-        clear: 'clear',
+        home: 'home.html',
+        about: 'about.html',
+        experience: 'experience.html',
+        education: 'education.html',
+        skills: 'skills.html',
+        languages: 'languages.html',
+        projects: 'projects.html',
+        gallery: 'gallery.html',
+        contact: 'contact.html',
+        help: 'help.html',
+        clear: 'clear.html',
     };
 
     let commandHistory = [];
