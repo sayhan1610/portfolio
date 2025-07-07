@@ -53,7 +53,7 @@ Available Commands:
 
     const fetchDataAndRender = async (page) => {
         try {
-            const response = await fetch(`cli/pages/${page}.json`);
+            const response = await fetch(`/cli/pages/${page}.json`);
             const data = await response.json();
             appendOutput(data.content.join('\n'));
         } catch (error) {
