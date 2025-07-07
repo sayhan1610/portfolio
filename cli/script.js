@@ -106,7 +106,7 @@ Available Commands:
                             setTimeout(() => {
                                 appendOutput("Content loaded successfully!");
                                 setTimeout(() => {
-                                    window.location.href = "https://sayhan.hackclub.app";
+                                    window.location.href = "https://sayhanrahman.netlify.app";
                                 }, 500);
                             }, 500);
                         } else {
