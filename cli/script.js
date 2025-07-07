@@ -5,17 +5,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const inputField = document.getElementById('input');
 
     const routes = {
-        home: 'home.html',
-        about: 'about.html',
-        experience: 'experience.html',
-        education: 'education.html',
-        skills: 'skills.html',
-        languages: 'languages.html',
-        projects: 'projects.html',
-        gallery: 'gallery.html',
-        contact: 'contact.html',
-        help: 'help.html',
-        clear: 'clear.html',
+        home: 'home',
+        about: 'about',
+        experience: 'experience',
+        education: 'education',
+        skills: 'skills',
+        languages: 'languages',
+        projects: 'projects',
+        gallery: 'gallery',
+        contact: 'contact',
+        help: 'help',
+        clear: 'clear',
     };
 
     let commandHistory = [];
@@ -53,7 +53,7 @@ Available Commands:
 
     const fetchDataAndRender = async (page) => {
         try {
-            const response = await fetch(`/pages/${page}.json`);
+            const response = await fetch(`cli/pages/${page}.json`);
             const data = await response.json();
             appendOutput(data.content.join('\n'));
         } catch (error) {
