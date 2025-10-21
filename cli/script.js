@@ -106,7 +106,7 @@ Available Commands:
                             setTimeout(() => {
                                 appendOutput("Content loaded successfully!");
                                 setTimeout(() => {
-                                    window.location.href = "https://sayhanrahman.netlify.app";
+                                    window.location.href = "https://sayhan.app";
                                 }, 500);
                             }, 500);
                         } else {
