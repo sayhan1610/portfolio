@@ -104,3 +104,28 @@ document.addEventListener('mousemove', (e) => {
     cursor.style.left = e.clientX + 'px';
     cursor.style.top = e.clientY + 'px';
 });
+
+// === Mobile nav2 toggle ===
+(function () {
+    const btn = document.getElementById('hamburger');
+    const body = document.body;
+    if (!btn) return;
+    btn.addEventListener('click', () => {
+      const opened = body.classList.toggle('show-nav2');
+      btn.setAttribute('aria-expanded', opened ? 'true' : 'false');
+    });
+
+    // Close when clicking a nav2 link or clicking outside the menu
+    document.addEventListener('click', (e) => {
+      if (!body.classList.contains('show-nav2')) return;
+      const inside = e.target.closest('.nav2') || e.target.closest('#hamburger');
+      if (!inside) {
+        body.classList.remove('show-nav2');
+        btn.setAttribute('aria-expanded', 'false');
+      }
+      if (e.target.closest('.nav2 a')) {
+        body.classList.remove('show-nav2');
+        btn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  })();
