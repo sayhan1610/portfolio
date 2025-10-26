@@ -297,6 +297,7 @@ h3 {
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
+
 }
 .project-card {
   background-color: #1c1c1c;
@@ -360,7 +361,6 @@ html {
   font: var(--font-weight) var(--font-size) var(--font-family);
   background: var(--btn-default-bg);
   border: none;
-  cursor: pointer;
   transition: var(--btn-transition);
   overflow: hidden;
   box-shadow: var(--btn-shadow);
@@ -651,7 +651,6 @@ button {
   padding: 0.8rem 2rem;
   font: 18px "Margarine", sans-serif;
   outline: none;
-  cursor: pointer;
   position: relative;
   transition: 0.2s ease-in-out;
   letter-spacing: 2px;
@@ -803,7 +802,6 @@ button {
 
   font-weight: 600;
   color: #fff;
-  cursor: default;
 }
 
 .card-des {
@@ -818,7 +816,6 @@ button {
   word-break: break-all;
   -webkit-line-clamp: 3;
   line-clamp: 3;
-  cursor: default;
 }
 
 .card-text {
@@ -836,7 +833,6 @@ button {
   opacity: 0;
   transition: all ease-in-out 0.3s;
   animation: textanimate 0.8s alternate infinite;
-  cursor: pointer;
 }
 
 .card:hover > .card-text {
@@ -881,7 +877,6 @@ button {
   margin: 0;
   font-weight: 600;
   color: #fff;
-  cursor: default;
 }
 
 .section-des {
@@ -896,7 +891,6 @@ button {
   word-break: break-all;
   -webkit-line-clamp: 3;
   line-clamp: 3;
-  cursor: default;
 }
 
 .section-text {
@@ -914,7 +908,6 @@ button {
   opacity: 0;
   transition: all ease-in-out 0.3s;
   animation: textanimate 0.8s alternate infinite;
-  cursor: pointer;
 }
 
 .section:hover > .section-text {
@@ -1058,6 +1051,9 @@ button {
     transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
   }
 
+  #customCursor {
+    display: none;
+  }
   .about-section .card img {
     margin-top: 20px;
     width: auto;
@@ -1095,3 +1091,17 @@ button {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
 }
+
+#trailCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  pointer-events: none;
+  cursor: none;
+  filter: brightness(1.3) contrast(1.2);
+}
+
+body, html, button, input, textarea, a { cursor: none !important; }
