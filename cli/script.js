@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
         contact: 'contact',
         help: 'help',
         clear: 'clear',
+        awards: 'awards'
     };
 
     let commandHistory = [];
@@ -41,6 +42,7 @@ Available Commands:
 - ℹ️ about: Learn more about me.
 - ♟️ experience: See my experience.
 - 📝 education: See my educational background.
+- 🏆 awards: View my awards and honors.
 - 📊 skills: See my skills.
 - 🌐 languages: See the languages I know.
 - 🧑‍🔬 projects: Explore my GitHub projects.
