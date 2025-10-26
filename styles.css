@@ -1085,9 +1085,7 @@ button {
     color: #777777;
     line-height: 1.4;
   }
-  .card__description{
-    font-size: auto !important;
-  }
+
   .gallery-image {
     width: calc(33.333% - 10px); /* Adjust as needed */
     height: 230px; /* Set a fixed height for consistency */
@@ -1166,3 +1164,11 @@ body, html, button, input, textarea, a { cursor: none !important; }
        body.show-nav2 #hamburger .bar:nth-child(2) { opacity: 0; }
        body.show-nav2 #hamburger .bar:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
      }
+
+     @media (hover: hover) and (pointer: fine) {
+  .about-section .card:hover {
+    display: flex;
+    transform: scale(1.05); /* example hover effect */
+    transition: transform 0.3s ease;
+  }
+}
