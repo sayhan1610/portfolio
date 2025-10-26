@@ -1052,7 +1052,6 @@ button {
     justify-content: center;
     overflow: hidden;
     transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-    touch-action: none;
   }
 
   #customCursor {
@@ -1068,7 +1067,6 @@ button {
 
   .about-section .card:hover {
     display: flex;
-    touch-action: none;
   }
   .about-section .lang-card__title {
     font-size: 2px;
@@ -1086,6 +1084,9 @@ button {
     font-size: auto;
     color: #777777;
     line-height: 1.4;
+  }
+  .card__description{
+    font-size: auto !important;
   }
   .gallery-image {
     width: calc(33.333% - 10px); /* Adjust as needed */
