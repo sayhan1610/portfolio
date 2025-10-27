@@ -1082,9 +1082,25 @@ button {
   .about-section .card:hover {
     display: flex;
   }
-  .about-section .lang-card__title {
+  .about-section2 .lang-card__title {
     font-size: 2px;
   }
+
+    .about-section2 .card2 img {
+    margin-top: 20px;
+    width: auto;
+    height: 200px;
+    border-radius: 20%;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .about-section2 .card:hover {
+    display: flex;
+  }
+  .about-section2 .lang-card__title {
+    font-size: 2px;
+  }
+  
   .card___title {
     margin: 0;
     display: block;
