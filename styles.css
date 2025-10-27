@@ -1055,6 +1055,19 @@ button {
     display: none;
   }
 
+    .about-section2 .card2 {
+    position: relative;
+    width: 100%;
+    height: auto;
+    background: linear-gradient(-45deg, #212121 0%, #414141 50%, #212121 100%);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  
   #customCursor {
     display: none;
   }
