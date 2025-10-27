@@ -1086,7 +1086,7 @@ button {
     line-height: 1.4;
   }
   .card__description {
-    font-size: 23px;
+    font-size: 10px;
   }
   .gallery-image {
     width: calc(33.333% - 10px); /* Adjust as needed */
