@@ -1052,22 +1052,8 @@ button {
     justify-content: center;
     overflow: hidden;
     transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-    display: none;
   }
 
-    .about-section2 .card2 {
-    position: relative;
-    width: 100%;
-    height: auto;
-    background: linear-gradient(-45deg, #212121 0%, #414141 50%, #212121 100%);
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-  }
-  
   #customCursor {
     display: none;
   }
@@ -1082,25 +1068,9 @@ button {
   .about-section .card:hover {
     display: flex;
   }
-  .about-section2 .lang-card__title {
+  .about-section .lang-card__title {
     font-size: 2px;
   }
-
-    .about-section2 .card2 img {
-    margin-top: 20px;
-    width: auto;
-    height: 200px;
-    border-radius: 20%;
-    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-  }
-
-  .about-section2 .card:hover {
-    display: flex;
-  }
-  .about-section2 .lang-card__title {
-    font-size: 2px;
-  }
-  
   .card___title {
     margin: 0;
     display: block;
@@ -1115,7 +1085,6 @@ button {
     color: #777777;
     line-height: 1.4;
   }
-  
   .gallery-image {
     width: calc(33.333% - 10px); /* Adjust as needed */
     height: 230px; /* Set a fixed height for consistency */
@@ -1194,11 +1163,3 @@ body, html, button, input, textarea, a { cursor: none !important; }
        body.show-nav2 #hamburger .bar:nth-child(2) { opacity: 0; }
        body.show-nav2 #hamburger .bar:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
      }
-
-     @media (hover: hover) and (pointer: fine) {
-  .about-section .card:hover {
-    display: flex;
-    transform: scale(1.05); /* example hover effect */
-    transition: transform 0.3s ease;
-  }
-}
