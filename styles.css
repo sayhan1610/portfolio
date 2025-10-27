@@ -1085,7 +1085,9 @@ button {
     color: #777777;
     line-height: 1.4;
   }
-
+  .card__description {
+    font-size: 23px;
+  }
   .gallery-image {
     width: calc(33.333% - 10px); /* Adjust as needed */
     height: 230px; /* Set a fixed height for consistency */
