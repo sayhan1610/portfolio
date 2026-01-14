@@ -94,7 +94,7 @@ Explore some visual highlights of my work and interests in the [Gallery](#galler
 ## Contact
 
 - **Email**: [sayhanrahman@gokkusagi.k12.tr](mailto:sayhanrahman@gokkusagi.k12.tr)
-- **Phone**: +90 551 599 00 55
+- **Phone**: +1 (507) 304-2472
 - **Social Media**:
   - [Instagram](https://www.instagram.com/alexx_sh16/)
   - [Discord](https://discord.gg/VpvYKbasZN)
