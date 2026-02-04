@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Teaching Guide — Set up Git & GitHub (Windows / macOS / Linux) + VS Code Integration</title>
+  <style>
+    :root{
+      --bg:#0f1720; --card:#0b1220; --accent:#08a0ff; --muted:#9fb3c8;
+      --mono: "SFMono-Regular", Menlo, Monaco, "Roboto Mono", monospace;
+      color-scheme: dark;
+    }
+    body{font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background:linear-gradient(180deg,#071021 0%, #071426 100%); color:#dbe9f8; margin:0; padding:30px;}
+    header{display:flex; align-items:center; gap:20px;}
+    h1{margin:0; font-size:1.8rem;}
+    .subtitle{color:var(--muted); margin-top:4px;}
+    nav{margin-top:18px; display:flex; gap:12px; flex-wrap:wrap;}
+    .btn{background:var(--card); color:var(--accent); padding:6px 10px; border-radius:8px; text-decoration:none; border:1px solid rgba(8,160,255,0.12); font-weight:600;}
+    main{margin-top:26px; display:grid; grid-template-columns: 320px 1fr; gap:22px;}
+    aside{background:rgba(255,255,255,0.02); padding:16px; border-radius:10px;}
+    section.card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding:20px; border-radius:12px; border:1px solid rgba(255,255,255,0.02);}
+    h2{margin-top:0;}
+    pre{background:#021016; padding:12px; border-radius:8px; overflow:auto; font-family:var(--mono); font-size:0.95rem; color:#d1f0ff;}
+    code{font-family:var(--mono); font-size:0.95rem;}
+    table{width:100%; border-collapse:collapse; margin-top:8px;}
+    td,th{padding:8px; border-bottom:1px solid rgba(255,255,255,0.03); text-align:left;}
+    .muted{color:var(--muted); font-size:0.95rem;}
+    .note{background:rgba(8,160,255,0.06); padding:10px; border-radius:8px; color:var(--muted); font-size:0.95rem;}
+    .links a{color:var(--accent); text-decoration:none;}
+    footer{margin-top:24px; color:var(--muted); font-size:0.9rem;}
+    .cheats{display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin-top:10px;}
+    @media(max-width:900px){main{grid-template-columns: 1fr;}}
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>Set up Git & GitHub (from scratch)</h1>
+      <div class="subtitle">Windows • macOS • Linux — plus VS Code integration for push/pull (class-ready)</div>
+    </div>
+  </header>
+
+  <nav>
+    <a class="btn" href="#prereqs">Prerequisites</a>
+    <a class="btn" href="#install">Install Git (per-OS)</a>
+    <a class="btn" href="#configure">Configure Git</a>
+    <a class="btn" href="#ssh">SSH Keys</a>
+    <a class="btn" href="#create-repo">Create Repo & Clone</a>
+    <a class="btn" href="#workflow">Basic Workflow</a>
+    <a class="btn" href="#vscode">VS Code Integration</a>
+    <a class="btn" href="#troubleshoot">Troubleshooting</a>
+    <a class="btn" href="#cheatsheet">Cheat sheet</a>
+  </nav>
+
+  <main>
+    <aside class="card">
+      <h3>Quick TOC</h3>
+      <ol class="muted">
+        <li><a href="#install" class="links">Install Git (git-scm)</a></li>
+        <li><a href="#configure" class="links">Configure (name / email)</a></li>
+        <li><a href="#ssh" class="links">SSH key & add to GitHub</a></li>
+        <li><a href="#create-repo" class="links">Create GitHub repo & clone</a></li>
+        <li><a href="#workflow" class="links">Push / Pull basics</a></li>
+        <li><a href="#vscode" class="links">VS Code GUI steps</a></li>
+      </ol>
+      <div style="margin-top:14px;">
+        <div class="note"><strong>Note:</strong> This guide uses the Git command-line plus Visual Studio Code GUI for push/pull. Official Git downloads and docs are linked inside each section.</div>
+      </div>
+      <div style="margin-top:12px;" class="muted">Sources at bottom (official docs: git-scm, GitHub, VS Code).</div>
+    </aside>
+
+    <section class="card" id="prereqs">
+      <h2>Prerequisites</h2>
+      <ul class="muted">
+        <li>A GitHub account (free) — <a href="https://github.com/" target="_blank">github.com</a></li>
+        <li>Admin access to install software (or ability to use package manager)</li>
+        <li>Terminal / Command Prompt access. For convenience, we’ll also show VS Code integration.</li>
+      </ul>
+
+      <h3 style="margin-top:12px;">Why use SSH vs HTTPS?</h3>
+      <p class="muted">SSH provides passwordless authentication after initial key setup and avoids typing credentials repeatedly. HTTPS works fine for beginners and uses username/password (or token). This guide shows both; SSH is recommended for class setups.</p>
+    </section>
+
+    <section class="card" id="install">
+      <h2>Install Git (Windows / macOS / Linux)</h2>
+
+      <h3>Official downloads</h3>
+      <p class="muted">Get the latest official Git installers or packages from the Git project: <a href="https://git-scm.com/" target="_blank">git-scm.com</a>. Follow these OS-specific steps:</p>
+
+      <h4>Windows</h4>
+      <ol class="muted">
+        <li>Go to <a href="https://git-scm.com/download/win" target="_blank">https://git-scm.com/download/win</a> — the Git for Windows installer will download.</li>
+        <li>Run the installer. Default options are fine for a classroom install. When asked about the terminal emulator, choosing "Git Bash" is recommended.</li>
+        <li>After install, open Git Bash (or PowerShell) and run:<br/>
+          <pre><code>git --version</code></pre>
+        </li>
+      </ol>
+
+      <h4>macOS</h4>
+      <ol class="muted">
+        <li>Option A (recommended): Install via Homebrew:
+          <pre><code>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew install git
+git --version
+</code></pre>
+        </li>
+        <li>Option B: Use the macOS installer from Git SCM: <a href="https://git-scm.com/download/mac" target="_blank">git-scm.com/download/mac</a>. After install, verify with <code>git --version</code>.</li>
+      </ol>
+
+      <h4>Linux (Ubuntu / Debian)</h4>
+      <pre><code>sudo apt update
+sudo apt install git
+git --version</code></pre>
+      <p class="muted">Other distributions use the distro package manager (yum, dnf, pacman). Official install docs: <a href="https://git-scm.com/" target="_blank">git-scm.com</a>.</p>
+    </section>
+
+    <section class="card" id="configure">
+      <h2>Configure Git (global)</h2>
+      <p class="muted">After install, set your name and email (these appear in commits):</p>
+      <pre><code>git config --global user.name "Your Name"
+git config --global user.email "you@example.com"
+git config --global core.editor "code --wait"   # optional: set VS Code as editor</code></pre>
+
+      <h3>Helpful global settings</h3>
+      <pre><code>git config --global color.ui auto
+git config --global pull.rebase false   # or true if you prefer rebase pull</code></pre>
+
+      <p class="muted">Verify: <code>git config --list</code></p>
+    </section>
+
+    <section class="card" id="ssh">
+      <h2>Generate SSH key & add to GitHub (recommended)</h2>
+      <ol class="muted">
+        <li>Open terminal (Git Bash on Windows).</li>
+        <li>Generate an SSH key (RSA or Ed25519 is preferred):<br/>
+          <pre><code># Ed25519 (recommended)
+ssh-keygen -t ed25519 -C "you@example.com"
+
+# Or RSA (older systems)
+ssh-keygen -t rsa -b 4096 -C "you@example.com"</code></pre>
+        </li>
+        <li>When prompted, accept the default file location and optionally set a passphrase (recommended for extra security).</li>
+        <li>Start the SSH agent and add the key:</li>
+        <pre><code># macOS / Linux
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+
+# Windows (Git Bash)
+eval "$(ssh-agent -s)"
+ssh-add /c/Users/YourName/.ssh/id_ed25519</code></pre>
+
+        <li>Copy the public key and paste it into GitHub &gt; Settings &gt; SSH and GPG keys &gt; New SSH key:</li>
+        <pre><code>cat ~/.ssh/id_ed25519.pub
+# then copy the printed key</code></pre>
+        <li>Test connection:
+          <pre><code>ssh -T git@github.com
+
+# expected: "Hi username! You've successfully authenticated..."</code></pre>
+        </li>
+      </ol>
+
+      <p class="muted">If you prefer HTTPS, you can use a personal access token (PAT) for CLI authentication instead of a password. See GitHub docs for tokens.</p>
+    </section>
+
+    <section class="card" id="create-repo">
+      <h2>Create a GitHub repo & clone it</h2>
+      <h3>1) Create repository on GitHub</h3>
+      <ol class="muted">
+        <li>Go to <a href="https://github.com/new" target="_blank">github.com/new</a></li>
+        <li>Choose a name, visibility (Public/Private), optionally add a README, then Create repository.</li>
+      </ol>
+
+      <h3>2) Clone the repo (SSH or HTTPS)</h3>
+      <p class="muted">SSH example (recommended if you added SSH key):</p>
+      <pre><code>git clone git@github.com:YourUser/your-repo.git
+cd your-repo</code></pre>
+
+      <p class="muted">HTTPS example (you'll provide username & PAT when pushing):</p>
+      <pre><code>git clone https://github.com/YourUser/your-repo.git
+cd your-repo</code></pre>
+    </section>
+
+    <section class="card" id="workflow">
+      <h2>Basic Git workflow: add → commit → push → pull</h2>
+      <ol class="muted">
+        <li>Make or edit files in your repo folder.</li>
+        <li>Check status:
+          <pre><code>git status</code></pre>
+        </li>
+        <li>Add changes:
+          <pre><code>git add file1.txt
+# or add all changes
+git add .</code></pre>
+        </li>
+        <li>Commit:
+          <pre><code>git commit -m "Short, clear commit message"</code></pre>
+        </li>
+        <li>Push to origin (default branch often 'main'):
+          <pre><code>git push origin main</code></pre>
+        </li>
+        <li>To get the latest changes from remote:
+          <pre><code>git pull origin main
+# or
+git fetch origin
+git merge origin/main</code></pre>
+        </li>
+      </ol>
+
+      <h3>Branches & collaboration (quick)</h3>
+      <pre><code>git checkout -b feature/awesome
+# work, add, commit
+git push -u origin feature/awesome
+# create PR on GitHub and merge when ready</code></pre>
+
+      <p class="muted">When multiple people push, you'll commonly <code>git pull</code> before pushing, resolve conflicts if any, then push again.</p>
+    </section>
+
+    <section class="card" id="vscode">
+      <h2>Using Visual Studio Code's Git integration (GUI)</h2>
+      <p class="muted">VS Code surfaces Git operations in the Source Control view and supports signing into GitHub for PRs. Install VS Code first: <a href="https://code.visualstudio.com/" target="_blank">code.visualstudio.com</a>.</p>
+
+      <h3>Steps (quick)</h3>
+      <ol class="muted">
+        <li>Open the cloned folder in VS Code: <code>code .</code> from the repo root (or File → Open Folder).</li>
+        <li>Open the Source Control icon (left sidebar). VS Code shows changed files.</li>
+        <li>Stage changes by clicking the + icon next to a file, enter the commit message in the box, then click the checkmark to commit.</li>
+        <li>Push / Pull: click the sync icon in the bottom-left status bar (rotating arrows). Use the ... menu in Source Control to select Push or Pull individually.</li>
+        <li>To use GitHub Pull Requests inside VS Code, install the "GitHub Pull Requests and Issues" extension and sign-in via the GitHub menu. This enables creating and reviewing PRs without leaving the editor.</li>
+      </ol>
+
+      <p class="muted">VS Code docs: source control quickstart and GitHub PR extension docs are excellent references.</p>
+    </section>
+
+    <section class="card" id="troubleshoot">
+      <h2>Troubleshooting & common issues</h2>
+      <h4>Authentication failed / permission denied</h4>
+      <ul class="muted">
+        <li>SSH: ensure your public key is added to GitHub and the agent has the key (`ssh-add`).</li>
+        <li>HTTPS: use a Personal Access Token (PAT) when prompted for password. GitHub no longer accepts account password for Git over HTTPS.</li>
+      </ul>
+
+      <h4>Line endings (Windows vs Unix)</h4>
+      <p class="muted">Set core.autocrlf appropriately:
+        <pre><code># Windows
+git config --global core.autocrlf true
+
+# macOS / Linux
+git config --global core.autocrlf input</code></pre>
+      </p>
+
+      <h4>Merge conflicts</h4>
+      <p class="muted">Open conflicting files, resolve manually, then:</p>
+      <pre><code>git add resolved-file.txt
+git commit -m "Resolve conflict"
+git push</code></pre>
+    </section>
+
+    <section class="card" id="cheatsheet">
+      <h2>Cheat sheet (most useful commands)</h2>
+      <div class="cheats">
+        <div>
+          <table>
+            <tr><th>Action</th><th>Command</th></tr>
+            <tr><td>Clone</td><td><code>git clone &lt;url&gt;</code></td></tr>
+            <tr><td>Status</td><td><code>git status</code></td></tr>
+            <tr><td>Add</td><td><code>git add .</code></td></tr>
+            <tr><td>Commit</td><td><code>git commit -m "msg"</code></td></tr>
+            <tr><td>Push</td><td><code>git push</code></td></tr>
+            <tr><td>Pull</td><td><code>git pull</code></td></tr>
+          </table>
+        </div>
+        <div>
+          <table>
+            <tr><th>Action</th><th>Command</th></tr>
+            <tr><td>Branch</td><td><code>git checkout -b name</code></td></tr>
+            <tr><td>Switch</td><td><code>git checkout name</code></td></tr>
+            <tr><td>Fetch</td><td><code>git fetch</code></td></tr>
+            <tr><td>Merge</td><td><code>git merge origin/main</code></td></tr>
+            <tr><td>View log</td><td><code>git log --oneline --graph --all</code></td></tr>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" id="references">
+      <h2>References & Links</h2>
+      <ul class="muted links">
+        <li>Official Git downloads & docs — git-scm: <a href="https://git-scm.com/" target="_blank">https://git-scm.com/</a></li>
+        <li>GitHub: Set up Git — <a href="https://docs.github.com/en/get-started/git-basics/set-up-git" target="_blank">GitHub Docs — Set up Git</a></li>
+        <li>VS Code: Source control / Git quickstart — <a href="https://code.visualstudio.com/docs/sourcecontrol/overview" target="_blank">VS Code Source Control Docs</a></li>
+        <li>macOS install notes: git-scm mac installer — <a href="https://git-scm.com/download/mac" target="_blank">git-scm (mac)</a></li>
+      </ul>
+    </section>
+
+    <footer>
+      <div class="muted">Created for classroom use. Always cite official docs when in doubt.</div>
+    </footer>
+  </main>
+</body>
+</html>
