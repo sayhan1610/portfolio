@@ -273,6 +273,39 @@ function bloom(){
     messageBox.style.opacity = 1;
   },100);
 }
+
+let draggedFlower = null;
+let offsetX = 0;
+let offsetY = 0;
+
+function startDrag(e) {
+  if(e.target.classList.contains("flower")) {
+    draggedFlower = e.target;
+    const rect = draggedFlower.getBoundingClientRect();
+    const bouquetRect = bouquet.getBoundingClientRect();
+    offsetX = e.clientX - rect.left;
+    offsetY = e.clientY - rect.top;
+  }
+}
+
+function moveDrag(e) {
+  if(draggedFlower) {
+    const bouquetRect = bouquet.getBoundingClientRect();
+    const newX = e.clientX - bouquetRect.left - offsetX;
+    const newY = e.clientY - bouquetRect.top - offsetY;
+    draggedFlower.style.left = newX + "px";
+    draggedFlower.style.bottom = "auto";
+    draggedFlower.style.top = newY + "px";
+  }
+}
+
+function stopDrag() {
+  draggedFlower = null;
+}
+
+document.addEventListener("mousedown", startDrag);
+document.addEventListener("mousemove", moveDrag);
+document.addEventListener("mouseup", stopDrag);
 </script>
 
 </body>
